@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Cold Weather Widget</h1>
+<div class="element">
+  <resortlist [resorts]="resorts" [selectedResort]="selectedResort" (onResortChanged)="onResortChanged( $event )"></resortlist>
+  <div class="element-right">
+    <weatherforecast [location]="selectedResort.location"></weatherforecast>
+    <followinfo [selectedResort]="selectedResort"></followinfo>
+  </div>
+  <div class="clear"> </div>
+</div>
+<div class="copy-right">
+  <p>© 2015 Cold Weather Widget. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">  W3layouts </a></p>
+</div>

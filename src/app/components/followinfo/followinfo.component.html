@@ -1,0 +1,17 @@
+<div class="teddy-bear">
+  <div class="teddy-text">
+    <h4>{{selectedResort.name}}</h4>
+    <span class="w-line"> </span>
+    <img [src]="'assets/' + selectedResort.photos[ 0 ].medium" alt=""  class="img-responsive">
+  </div>
+  <div class="teddy-follow">
+    <ul>
+      <li class="folw-h"><h3>{{selectedResort.numFollowers}}</h3>
+        <p>Followers</p>
+      </li>
+      <li><h3>{{selectedResort.numFollowing}}</h3>
+        <p>Following</p>
+      </li>
+    </ul>
+  </div>
+</div>
