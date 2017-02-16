@@ -1,16 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Photo } from '../../vo/photo';
 
 @Component({
-  selector: 'photolist',
-  templateUrl: './photolist.component.html',
-  styleUrls: ['./photolist.component.css']
+  selector: 'photo-list',
+  templateUrl: './photo-list.component.html',
+  styleUrls: ['./photo-list.component.css']
 })
-export class PhotolistComponent {
+export class PhotoListComponent {
 
   @Input()
   public photos: Photo[];
-
 
   @Input()
   public selectedPhoto : Photo;

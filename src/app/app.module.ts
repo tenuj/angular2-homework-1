@@ -4,19 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ResortlistComponent } from './components/resortlist/resortlist.component';
-import { WeatherforecastComponent } from './components/weatherforecast/weatherforecast.component';
-import { FollowinfoComponent } from './components/followinfo/followinfo.component';
-import { PhotolistComponent } from './components/photolist/photolist.component';
+import { ResortListComponent } from './components/resort-list/resort-list.component';
+import { WeatherForecastComponent } from './components/weather-forecast/weather-forecast.component';
+import { FollowInfoComponent } from './components/follow-info/follow-info.component';
+import { PhotoListComponent } from './components/photo-list/photo-list.component';
+import { ResortActivityPipe } from './components/resort-list/resort-activity.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResortlistComponent,
-    WeatherforecastComponent,
-    FollowinfoComponent,
-    PhotolistComponent
+    ResortListComponent,
+    WeatherForecastComponent,
+    FollowInfoComponent,
+    PhotoListComponent,
+    ResortActivityPipe
 
   ],
   imports: [

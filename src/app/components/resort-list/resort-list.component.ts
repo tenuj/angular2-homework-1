@@ -1,23 +1,26 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Resort }                   from '../../vo/resort';
-import { Photo }                    from '../../vo/photo';
+import { ResortsService } from '../../services/resorts.service';
+import { Activities } from '../../services/resorts.data';
 
 @Component({
-  selector: 'resortlist',
-  templateUrl: './resortlist.component.html',
-  styleUrls: ['./resortlist.component.css']
+  selector: 'resort-list',
+  templateUrl: './resort-list.component.html',
+  styleUrls: ['./resort-list.component.css']
 })
-export class ResortlistComponent  {
+export class ResortListComponent  {
+
+  public constructor( private resortService : ResortsService )
+  {
+
+  }
 
   @Input()
   public resorts : Resort[];
 
-  private _selectedResort : Resort;
-
   @Input()
   public set selectedResort( resort : Resort )
   {
-    this._selectedResort = resort;
+    this.selectedResortValue = resort;
 
     let resetPhoto : boolean = true;
 
@@ -37,11 +40,13 @@ export class ResortlistComponent  {
 
   public get selectedResort() : Resort
   {
-    return this._selectedResort;
+    return this.selectedResortValue;
   }
 
   @Output()
   public onResortChanged = new EventEmitter<Resort>();
+
+  private selectedResortValue : Resort;
 
   public resortClick( resort : Resort )
   {
@@ -57,5 +62,12 @@ export class ResortlistComponent  {
   public onPhotoClick( photo : Photo )
   {
     this.selectedPhoto = photo;
+  }
+
+  public selectedActivity : number = Activities.All;
+
+  public changeActivity( activity : number )
+  {
+    this.selectedActivity = activity;
   }
 }

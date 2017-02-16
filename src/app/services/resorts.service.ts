@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RESORTS }    from '../mocks/resorts';
-import { Resort }     from '../vo/resort';
+import { resorts, Activities } from './resorts.data';
 
 @Injectable()
 export class ResortsService {
@@ -10,28 +9,42 @@ export class ResortsService {
     setInterval( () => { this.onInterval() }, 500 );
   }
 
+  public allActivities : number[] = [ Activities.Fishing, Activities.Hunting, Activities.Bathing, Activities.Swimming, Activities.All ];
+
+  public getResorts() : Resort[]
+  {
+    for ( let i : number = 0; i < resorts.length; i ++ )
+    {
+      let resort : Resort     = resorts[ i ];
+      resort.numFollowers = this.getRandomValue();
+      resort.numFollowing = this.getRandomValue();
+    }
+
+    return resorts;
+  }
+
+  public getActivityLabel( activity : number ) : string
+  {
+    switch( activity )
+    {
+      case Activities.Fishing  : return 'Рыбалка';
+      case Activities.Hunting  : return 'Охота';
+      case Activities.Bathing  : return 'Баня';
+      case Activities.Swimming : return 'Плавание';
+      default                : return 'Любая';
+    }
+  }
+
   private getRandomValue() : number
   {
     return 100 + Math.round( Math.random() * 100000 );
   }
 
-  public getResorts() : Resort[]
-  {
-    for ( let i : number = 0; i < RESORTS.length; i ++ )
-    {
-      let resort : Resort     = RESORTS[ i ];
-          resort.numFollowers = this.getRandomValue();
-          resort.numFollowing = this.getRandomValue();
-    }
-
-    return RESORTS;
-  }
-
   private onInterval()
   {
-    for ( let i : number = 0; i < RESORTS.length; i ++ )
+    for ( let i : number = 0; i < resorts.length; i ++ )
     {
-      let resort : Resort     = RESORTS[ i ];
+      let resort : Resort     = resorts[ i ];
       resort.numFollowers += this.getNextIncrease();
       resort.numFollowing += this.getNextIncrease();
     }

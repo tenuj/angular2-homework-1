@@ -57,7 +57,7 @@ h1 {
 }
 .ele-strip {
   background: #fda660;
-  padding: 1em 1em;
+  padding: 1em 0em 1em 0em;
   margin: -3px 0px 0px 0px;
 }
 .temperatur {
@@ -166,6 +166,12 @@ span.cloud {
 ul li.anc-bor {
   border-right: none;
 }
+
+ul li.selected {
+  text-decoration: underline;
+}
+
+
 /*--scroll --*/
 .span_7 {
   padding-left: 0;
@@ -232,6 +238,21 @@ i.text-info{
   margin: 13px 0 0 0;
   font-weight: bold;
 }
+
+.activity-desc ul li {
+  color: #fd7b87;
+  font-size: 13px;
+  text-align: right;
+  display: inline-block;
+  padding: 0em 0.5em 0em 0em;
+
+}
+
+.anc-bor ul li {
+  border-right: none;
+}
+
+
 .activity-row{
    padding : 8px;
    border : 1px dotted rgba( 253, 166, 96, 0.2 )

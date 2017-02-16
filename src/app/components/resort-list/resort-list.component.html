@@ -1,0 +1,36 @@
+<div class="element-left">
+  <div class="element-bg-img"><img [src]="'assets/' + selectedPhoto.big" alt="" class="img-responsive"> </div>
+  <div class="element-left-bottom">
+
+    <div class="ele-strip">
+      <ul>
+        <li *ngFor="let activity of resortService.allActivities; let last = last" [ngClass]="{ 'anc-bor' : last, 'selected' : activity == selectedActivity }">
+          <a href="#" (click)="changeActivity( activity )">{{resortService.getActivityLabel( activity )}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="village">
+      <h3>Righteous indignation & like</h3>
+      <span class="line"> </span>
+      <div class="activity_box">
+        <div class="scrollbar" id="style-2">
+          <div *ngFor="let resort of resorts | resortActivity:selectedActivity" [class]="selectedResort == resort ? 'activity-row selected' : 'activity-row'" (click)="resortClick( resort )">
+            <div class="activity-desc">
+              <h5>{{resort.name}}</h5>
+              <p>{{resort.description}}</p>
+              <ul>
+                <li *ngFor="let activity of resort.activities; let last = last" [ngClass]="{ 'anc-bor' : last }">
+                  {{resortService.getActivityLabel( activity )}}
+                </li>
+              </ul>
+              <h6>Tel:{{resort.phone}}</h6>
+
+            </div>
+            <photo-list [photos]="resort.photos" [selectedPhoto]="selectedPhoto" (onPhotoClick)="onPhotoClick( $event )"></photo-list>
+            <div class="clear"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

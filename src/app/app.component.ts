@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ResortsService } from './services/resorts.service';
-import { Resort } from './vo/resort';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,7 @@ import { Resort } from './vo/resort';
   styleUrls: ['./app.component.css'],
   providers: [ResortsService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public selectedResort : Resort;
   public resorts        : Resort[];
