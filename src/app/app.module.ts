@@ -18,6 +18,7 @@ import { ResortActivityPipe } from './components/resort-list/resort-activity.pip
     WeatherForecastComponent,
     FollowInfoComponent,
     PhotoListComponent,
+    ResortActivityPipe,
     ResortActivityPipe
 
   ],
